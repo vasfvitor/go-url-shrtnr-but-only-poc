@@ -22,11 +22,6 @@ Node: You can use a dummy JSON file/Go map to store the URL for now instead of a
 | /api/v1/:url          | GET       | Redirect to original URL            | 301     | 404      |
 | /api/v1/debug/listall | GET       | List all maps to the server console |         |          |
 
-
-# Implementation:
-
-gorilla/mux
-
 # Takeaways:
 
 - Struct and other types can be inlined
@@ -34,3 +29,11 @@ gorilla/mux
 - This could be done with std lib as of Go 1.22
 
 NTS: Don't lose time in stuff outside the exercise scope, in this case, tests and design choices.
+
+# Possible improvements:
+
+- Improve shortening algorithm
+- Use a real database
+- Add tests
+- Ability to delete entries
+- And everything here: https://systemdesign.one/url-shortening-system-design/
