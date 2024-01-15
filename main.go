@@ -11,6 +11,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// base62 code source: https://ucarion.com/go-base62
 type UUID = [16]byte
 
 func toBase62(uuid UUID) string {
@@ -40,6 +41,7 @@ func RegisterShortenedUrl(w http.ResponseWriter, r *http.Request) {
 	}
 	inputURL := u.Url
 	shortned := Shorten(inputURL)
+
 	// if urlMap[shortned] exists {
 	// maybe do smth?
 	// }
