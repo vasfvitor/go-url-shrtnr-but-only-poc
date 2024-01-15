@@ -14,6 +14,11 @@ import (
 // base62 code source: https://ucarion.com/go-base62
 type UUID = [16]byte
 
+type URLs = struct {
+	LongURL  string `json:"long_url"`
+	ShortURL string `json:"short_url"`
+}
+
 func toBase62(uuid UUID) string {
 	var i big.Int
 	i.SetBytes(uuid[:])
@@ -48,10 +53,7 @@ func RegisterShortenedUrl(w http.ResponseWriter, r *http.Request) {
 	urlMap[shortned] = inputURL
 
 	w.Header().Set("Content-Type", "application/json")
-	response := struct {
-		LongURL  string `json:"long_url"`
-		ShortURL string `json:"short_url"`
-	}{
+	response := URLs{
 		LongURL:  inputURL,
 		ShortURL: "https://" + r.Host + "/" + shortned,
 	}
