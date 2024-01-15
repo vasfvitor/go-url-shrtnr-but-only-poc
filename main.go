@@ -34,18 +34,17 @@ func Shorten(url string) string {
 
 func RegisterShortenedUrl(w http.ResponseWriter, r *http.Request) {
 	var u URLS
-
 	err := json.NewDecoder(r.Body).Decode(&u)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 	inputURL := u.Url
-	fmt.Fprintf(w, "URL: %v\n", inputURL)
+	shortned := Shorten(inputURL)
+	urlMap[shortned] = inputURL
 
-	urlMap[Shorten(inputURL)] = inputURL
-	fmt.Fprintf(w, "Shortened URL: %s", urlMap[inputURL])
-
+	fmt.Fprintf(w, "Long URL: %v\n", inputURL)
+	fmt.Fprintf(w, "Shortened URL: %s", shortned)
 }
 
 func GetShortenedUrl(w http.ResponseWriter, r *http.Request) {
