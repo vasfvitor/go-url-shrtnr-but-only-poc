@@ -16,11 +16,11 @@ Node: You can use a dummy JSON file/Go map to store the URL for now instead of a
 
 # Endpoints 
 
-| URL                   | REST Verb | Action                              | Success | Failure  |
-| --------------------- | --------- | ----------------------------------- | ------- | -------- |
-| /api/v1/new           | POST      | Create a shortened URL              | 200     | 500, 404 |
-| /api/v1/:url          | GET       | Redirect to original URL            | 301     | 404      |
-| /api/v1/debug/listall | GET       | List all maps to the server console |         |          |
+| URL                   | REST Verb | Action                              | Success | Failure |
+| --------------------- | --------- | ----------------------------------- | ------- | ------- |
+| /api/v1/new           | POST      | Create a shortened URL              | 200     | 400     |
+| /api/v1/:url          | GET       | Redirect to original URL            | 301     | 404     |
+| /api/v1/debug/listall | GET       | List all maps to the server console |         |         |
 
 # Takeaways:
 
