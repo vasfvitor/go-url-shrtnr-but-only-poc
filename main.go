@@ -22,7 +22,7 @@ func toBase62(uuid UUID) string {
 var urlMap = make(map[string]string)
 
 func Shorten(url string) string {
-	var url16 [16]byte
+	var url16 UUID
 	copy(url16[:], url)
 	val := toBase62(url16)
 	return val
