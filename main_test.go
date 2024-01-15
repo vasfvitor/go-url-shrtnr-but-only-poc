@@ -1,3 +1,4 @@
+// tests doesn't work yet.
 package main
 
 import (
@@ -40,6 +41,7 @@ func TestRegisterShortenedUrl(t *testing.T) {
 		router.HandleFunc("/person", RegisterShortenedUrl).Methods("POST")
 		router.ServeHTTP(rr, req)
 
+		// FIXME!
 		if rr.Body.String() != tc.expected {
 			t.Errorf("wrong response body for param %v: got %v want %v",
 				tc.input, rr.Body.String(), tc.expected)
