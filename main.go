@@ -1,5 +1,5 @@
 // TODO: fix tests
-// TODO: improve base62 shortening
+// TODO: improve shortening
 
 package main
 
