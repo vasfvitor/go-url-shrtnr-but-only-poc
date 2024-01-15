@@ -49,7 +49,6 @@ func RegisterShortenedUrl(w http.ResponseWriter, r *http.Request) {
 
 func GetShortenedUrl(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	w.WriteHeader(http.StatusOK)
 
 	var shortURL, ok = urlMap[vars["url"]]
 	if !ok {
