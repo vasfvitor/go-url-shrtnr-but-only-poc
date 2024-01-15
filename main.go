@@ -7,34 +7,23 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"math/big"
 	"net/http"
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/jxskiss/base62"
 )
-
-// base62 code source: https://ucarion.com/go-base62
-type UUID = [16]byte
 
 type URLs = struct {
 	LongURL  string `json:"long_url"`
 	ShortURL string `json:"short_url"`
 }
 
-func toBase62(uuid UUID) string {
-	var i big.Int
-	i.SetBytes(uuid[:])
-	return i.Text(62)
-}
-
 // dummy database for the shortened urls
 var urlMap = make(map[string]string)
 
 func Shorten(url string) string {
-	var url16 UUID
-	copy(url16[:], url)
-	val := toBase62(url16)
+	val := base62.EncodeToString([]byte(url))
 	return val
 }
 
