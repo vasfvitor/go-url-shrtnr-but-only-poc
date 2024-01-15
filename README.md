@@ -1,18 +1,17 @@
-Hands-On RESTful Web Services with Go - Reader's challenge – an API for URL
-shortening
+Hands-On RESTful Web Services with Go - Reader's challenge – an API for URL shortening
 
 # Task
 
-Under the hood, the following things happen in a URL shortening service:
-Take the original URL1.
-Apply BASE62 encoding on it; it generates a Shortened URL2.
-Store that URL in the database. Map it to the original URL ([shortened_url:3.
-original_url])
-Whenever a request comes to the shortened URL, just do an HTTP redirect to the4.
-original URL
+1. Under the hood, the following things happen in a URL shortening service:
+Take the original URL
 
-Node: You can use a dummy JSON file/Go map to store the URL for now instead
-of a database.
+2. Apply BASE62 encoding on it; it generates a Shortened URL
+
+3. Store that URL in the database. Map it to the original URL ([shortened_url:original_url])
+
+4. Whenever a request comes to the shortened URL, just do an HTTP redirect to the original URL
+
+Node: You can use a dummy JSON file/Go map to store the URL for now instead of a database.
 
 
 # Endpoints 
@@ -21,7 +20,7 @@ of a database.
 | --------------------- | --------- | ----------------------------------- | ------- | -------- |
 | /api/v1/new           | POST      | Create a shortened URL              | 200     | 500, 404 |
 | /api/v1/:url          | GET       | Redirect to original URL            | 301     | 404      |
-| /api/v1/debug/listall | GET       | List all URLs to the server console |         |          |
+| /api/v1/debug/listall | GET       | List all maps to the server console |         |          |
 
 
 # Implementation:
