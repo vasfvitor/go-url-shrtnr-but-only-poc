@@ -28,6 +28,7 @@ func toBase62(uuid UUID) string {
 	return i.Text(62)
 }
 
+// dummy database for the shortened urls
 var urlMap = make(map[string]string)
 
 func Shorten(url string) string {
