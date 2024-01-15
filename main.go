@@ -44,7 +44,7 @@ func RegisterShortenedUrl(w http.ResponseWriter, r *http.Request) {
 	urlMap[shortned] = inputURL
 
 	fmt.Fprintf(w, "Long URL: %v\n", inputURL)
-	fmt.Fprintf(w, "Shortened URL: %s", shortned)
+	fmt.Fprintf(w, "Short URL: https://%s/%s", r.URL, shortned)
 }
 
 func GetShortenedUrl(w http.ResponseWriter, r *http.Request) {
