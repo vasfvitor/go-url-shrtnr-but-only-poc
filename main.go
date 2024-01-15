@@ -39,6 +39,9 @@ func RegisterShortenedUrl(w http.ResponseWriter, r *http.Request) {
 	}
 	inputURL := u.Url
 	shortned := Shorten(inputURL)
+	// if urlMap[shortned] exists {
+	// maybe do smth?
+	// }
 	urlMap[shortned] = inputURL
 
 	fmt.Fprintf(w, "Long URL: %v\n", inputURL)
