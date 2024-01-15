@@ -32,6 +32,7 @@ func RegisterShortenedUrl(w http.ResponseWriter, r *http.Request) {
 	var u struct {
 		Url string `json:"url"`
 	}
+
 	err := json.NewDecoder(r.Body).Decode(&u)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
@@ -44,8 +45,15 @@ func RegisterShortenedUrl(w http.ResponseWriter, r *http.Request) {
 	// }
 	urlMap[shortned] = inputURL
 
-	fmt.Fprintf(w, "Long URL: %v\n", inputURL)
-	fmt.Fprintf(w, "Short URL: https://%s/%s\n", r.URL, shortned)
+	w.Header().Set("Content-Type", "application/json")
+	response := struct {
+		LongURL  string `json:"long_url"`
+		ShortURL string `json:"short_url"`
+	}{
+		LongURL:  inputURL,
+		ShortURL: "https://" + r.Host + "/" + shortned,
+	}
+	json.NewEncoder(w).Encode(response)
 }
 
 func GetShortenedUrl(w http.ResponseWriter, r *http.Request) {
