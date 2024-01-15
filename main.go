@@ -57,7 +57,7 @@ func GetShortenedUrl(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error: URL not found", http.StatusNotFound)
 		return
 	}
-	fmt.Fprintf(w, "Shortened URL: %v\n", shortURL)
+	http.Redirect(w, r, shortURL, http.StatusMovedPermanently)
 }
 
 func LogAllUrls(w http.ResponseWriter, r *http.Request) {
