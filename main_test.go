@@ -17,7 +17,10 @@ func TestRegisterShortenedUrl(t *testing.T) {
 	}{
 		{input: "http://example.com/page/", expected: URLs{
 			LongURL:  "http://example.com/page/",
-			ShortURL: "https://localhost:8000/3b6qaefl67BhWe4aGZo8F5"}},
+			ShortURL: "https://localhost:8000/vU2ZhB3Lt92YuUGbw1WY4V2LvoDc0RHa"}},
+		{input: "http://example.com/anotherpage/", expected: URLs{
+			LongURL:  "http://example.com/anotherpage/",
+			ShortURL: "https://localhost:8000/vU2ZhBnclhGdv5WYv02bj5SZsBXbhhXZv8iOwRHdoB"}},
 	}
 
 	for _, tc := range tt {
