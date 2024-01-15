@@ -28,7 +28,7 @@ Node: You can use a dummy JSON file/Go map to store the URL for now instead of a
 - I need to learn about un/marshalling and its relation to de/serialization
 - This could be done with std lib as of Go 1.22
 
-NTS: Don't lose time in stuff outside the exercise scope, in this case, tests and design choices.
+Note to self: Don't lose time in stuff outside the exercise scope, in this case, tests and design choices.
 
 # Possible improvements:
 
