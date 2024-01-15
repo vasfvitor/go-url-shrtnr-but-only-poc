@@ -17,7 +17,13 @@ of a database.
 
 # Endpoints 
 
-| URL            | REST Verb | Action                    | Success | Failure      |
-|----------------|-----------|---------------------------|---------|--------------|
-| /api/v1/new    | POST      | Create a shortened URL    | 200     | 500, 404     |
-| /api/v1/:url   | GET       | Redirect to original URL  | 301     | 404          |
+| URL                   | REST Verb | Action                              | Success | Failure  |
+| --------------------- | --------- | ----------------------------------- | ------- | -------- |
+| /api/v1/new           | POST      | Create a shortened URL              | 200     | 500, 404 |
+| /api/v1/:url          | GET       | Redirect to original URL            | 301     | 404      |
+| /api/v1/debug/listall | GET       | List all URLs to the server console | 200     | 404      |
+
+
+# Implementation:
+
+gorilla/mux
