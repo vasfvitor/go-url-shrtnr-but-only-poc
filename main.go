@@ -1,3 +1,6 @@
+// TODO: fix tests
+// TODO: fix base62
+
 package main
 
 import (
