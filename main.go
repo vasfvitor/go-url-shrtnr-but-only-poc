@@ -11,10 +11,6 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type URLS struct {
-	Url string `json:"url"`
-}
-
 type UUID = [16]byte
 
 func toBase62(uuid UUID) string {
@@ -33,7 +29,9 @@ func Shorten(url string) string {
 }
 
 func RegisterShortenedUrl(w http.ResponseWriter, r *http.Request) {
-	var u URLS
+	var u struct {
+		Url string `json:"url"`
+	}
 	err := json.NewDecoder(r.Body).Decode(&u)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
